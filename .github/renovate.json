@@ -12,5 +12,6 @@
             ],
             "versioningTemplate": "docker"
         }
-    ]
+    ],
+    "schedule": ["at any time"]
 }

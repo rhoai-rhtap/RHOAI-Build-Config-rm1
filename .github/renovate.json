@@ -8,7 +8,7 @@
             "datasourceTemplate": "docker",
             "matchStrings":
             [
-                "ose-oauth-proxy-image:\\s*(?<depName>registry\\.redhat\\.io/openshift4/ose-oauth-proxy)(?:@sha256:(?<currentValue>[a-fA-F0-9]+))?"
+                "(?<depName>[\\w\\.\\/]+):(?<currentValue>[\\w]+)@(?<currentDigest>sha256:[a-f0-9]+)"
             ],
             "versioningTemplate": "docker"
         }

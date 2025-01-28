@@ -3,7 +3,7 @@
     "customManagers":
     [
         {
-            "fileMatch": ["bundle/csv-patch.yaml"],
+            "fileMatch": ["^bundle/csv-patch.yaml$"],
             "customType": "regex",
             "datasourceTemplate": "docker",
             "matchStrings":

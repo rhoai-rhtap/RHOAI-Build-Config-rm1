@@ -13,7 +13,7 @@
       "matchStrings": [
         "(?<depName>[\\w\\.\\/]+):(?<currentValue>[\\w]+)@(?<currentDigest>sha256:[a-f0-9]+)"
       ],
-      "versioningTemplate": "redhat",
+      "versioningTemplate": "docker",
       "currentValueTemplate": "{{currentValue}}"
     }
   ],

@@ -10,7 +10,7 @@
             [
                 "(?<depName>[\\w\\.\\/]+):(?<currentValue>[\\w]+)@(?<currentDigest>sha256:[a-f0-9]+)"
             ],
-            "versioningTemplate": "docker"
+            "versioningTemplate": "redhat"
         }
     ],
     "schedule": ["at any time"]

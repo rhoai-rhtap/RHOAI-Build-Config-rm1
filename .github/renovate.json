@@ -6,7 +6,7 @@
         "customType": "regex",
         "fileMatch": ["^bundle/csv-patch\\.yaml$"],
         "matchStrings": [
-          "(?<depName>ose-oauth-proxy): registry\\.redhat\\.io/openshift4/ose-oauth-proxy@sha256:(?<currentValue>[a-f0-9]+)"
+          "(?<depName>ose-oauth-proxy-image): registry\\.redhat\\.io/openshift4/ose-oauth-proxy@sha256:(?<currentValue>[a-f0-9]+)"
         ],
         "autoReplaceStringTemplate": "\"{{{depName}}}\": \"registry.redhat.io/openshift4/ose-oauth-proxy@sha256:{{{newValue}}}\"",
         "datasourceTemplate": "docker"

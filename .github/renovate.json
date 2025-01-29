@@ -2,7 +2,8 @@
     "packageRules": [
       {
         "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-        "versioning": "loose"
+        "versioning": "loose",
+        "pinDigests": true
       }
     ],
     "customManagers": [
@@ -17,3 +18,4 @@
       }
     ]
   }
+  

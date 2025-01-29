@@ -1,21 +1,15 @@
 {
-    "packageRules": [
-      {
-        "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-        "versioning": "regex:^(?<compatibility>.*)-sha256:(?<digest>[a-f0-9]+)$",
-        "pinDigests": true
-      }
-    ],
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:recommended"],
     "customManagers": [
-      {
-        "customType": "regex",
-        "fileMatch": ["^bundle/csv-patch\\.yaml$"],
-        "matchStrings": [
-          "(?<depName>ose-oauth-proxy-image): (?<imagePath>registry\\.redhat\\.io/openshift4/ose-oauth-proxy)@sha256:(?<currentValue>[a-f0-9]+)"
-        ],
-        "datasourceTemplate": "docker",
-        "currentValueTemplate": "sha256:{{currentValue}}"
-      }
+        {
+            "customType": "regex",
+            "fileMatch": ["^bundle/csv-patch\\.yaml$"],
+            "matchStrings": [
+                "\"image\":\\s\"(?<depName>[^:\"]+):(?<currentValue>[^@\"]+)(@(?<currentDigest>sha256:[a-f0-9]+))?\""
+            ],
+            "autoReplaceStringTemplate": "\"image\": \"{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\"",
+            "datasourceTemplate": "docker"
+        }
     ]
-  }
-  
+}

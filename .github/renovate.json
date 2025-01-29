@@ -14,5 +14,6 @@
             "autoReplaceStringTemplate": "\"image\": \"{{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}\"",
             "datasourceTemplate": "docker"
         }
-    ]
+    ],
+    "schedule": ["at any time"]
 }

@@ -8,14 +8,13 @@
             "matchStrings": [
                 "(?<depName>ose-oauth-proxy-image): (?<imagePath>registry\\.redhat\\.io/openshift4/ose-oauth-proxy)@(?<currentValue>sha256:[a-f0-9]+)"
             ],
-            "extractVersionTemplate": "{{currentValue}}"
+            "currentValueTemplate": "{{currentValue}}"
         }
     ],
     "packageRules": [
         {
             "matchDatasources": ["docker"],
             "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-            "matchUpdateTypes": ["digest"],
             "pinDigests": true
         }
     ]

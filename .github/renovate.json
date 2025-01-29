@@ -11,6 +11,7 @@
         "autoReplaceStringTemplate": "\"{{{depName}}}\": \"registry.redhat.io/openshift4/ose-oauth-proxy@sha256:{{{newValue}}}\"",
         "datasourceTemplate": "docker"
       }
-    ]
+    ],
+     "schedule": ["at any time"]
   }
   

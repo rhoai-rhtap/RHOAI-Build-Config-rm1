@@ -1,21 +1,19 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "customManagers": [
-        {
-            "fileMatch": ["bundle/csv-patch.yaml"],
-            "customType": "regex",
-            "datasourceTemplate": "docker",
-            "matchStrings": [
-                "(?<depName>ose-oauth-proxy-image): (?<imagePath>registry\\.redhat\\.io/openshift4/ose-oauth-proxy)@(?<currentValue>sha256:[a-f0-9]+)"
-            ],
-            "currentValueTemplate": "{{currentValue}}"
-        }
-    ],
     "packageRules": [
-        {
-            "matchDatasources": ["docker"],
-            "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-            "pinDigests": true
-        }
+      {
+        "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
+        "versioning": "regex:^(?<compatibility>.*)-sha256:(?<digest>[a-f0-9]+)$"
+      }
+    ],
+    "customManagers": [
+      {
+        "customType": "regex",
+        "fileMatch": ["^bundle/csv-patch\\.yaml$"],
+        "matchStrings": [
+          "(?<depName>ose-oauth-proxy-image): (?<imagePath>registry\\.redhat\\.io/openshift4/ose-oauth-proxy)@sha256:(?<currentValue>[a-f0-9]+)"
+        ],
+        "datasourceTemplate": "docker",
+        "currentValueTemplate": "sha256:{{currentValue}}"
+      }
     ]
-}
+  }

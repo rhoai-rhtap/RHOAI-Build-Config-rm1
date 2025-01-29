@@ -8,7 +8,7 @@
       "matchStrings": [
   "(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:(?<currentDigest>[a-f0-9]+) # (?<currentValue>[v0-9.]+)"
 ],
-      "autoReplaceStringTemplate": "{{{depName}}}: registry.redhat.io/openshift4/ose-oauth-proxy@{{{newValue}}} # {{{newVersion}}}",
+      "autoReplaceStringTemplate": "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:{{{newValue}}} # {{{newVersion}}}",
       "datasourceTemplate": "docker"
     }
   ],

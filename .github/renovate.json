@@ -2,6 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "enabledManagers": ["dockerfile", "custom.regex"],
+   "packageRules": [
+    {
+      "description": "Allow updating pinned digests for published images",
+      "matchManagers": ["custom.regex"],
+      "matchUpdateTypes": ["digest"],
+      "enabled": true
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",

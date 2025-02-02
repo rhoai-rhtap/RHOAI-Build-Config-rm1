@@ -1,2 +1,2 @@
-FROM ubi8
+FROM registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6e5db7a7aab708eb344b36dd6288590aaaf8d7daaaa7ea962fc07b4f985ac77c
 RUN echo "Hello, World!"

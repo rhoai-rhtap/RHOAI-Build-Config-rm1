@@ -8,6 +8,7 @@
       "matchFileNames": ["^bundle/csv-patch\\.yaml$"],
       "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
       "matchUpdateTypes": ["digest"],
+      "pinDigests": true,
       "enabled": true
     }
   ],

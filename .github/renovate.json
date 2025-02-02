@@ -1,25 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "enabledManagers": ["dockerfile", "custom.regex"],
-   "packageRules": [
+  "enabledManagers": ["dockerfile"],
+  "packageRules": [
     {
-      "description": "Allow updating pinned digests for published images",
-      "matchManagers": ["custom.regex"],
+      "description": "Update image digest in csv-patch.yaml",
+      "matchFileNames": ["^bundle/csv-patch\\.yaml$"],
+      "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
       "matchUpdateTypes": ["digest"],
       "enabled": true
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["^bundle/csv-patch\\.yaml$"],
-      "matchStrings": [
-        "(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:(?<currentDigest>[a-f0-9]+)(?: # (?<currentValue>.+))?"
-      ],
-      "autoReplaceStringTemplate": "{{{depName}}}@sha256:{{{newDigest}}} # {{{newVersion}}}",
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
     }
   ],
   "schedule": ["at any time"]

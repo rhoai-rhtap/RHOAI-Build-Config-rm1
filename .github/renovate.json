@@ -17,9 +17,21 @@
       "customType": "regex",
       "fileMatch": ["^bundle/csv-patch\\.yaml$"],
       "matchStrings": [
-        "(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:(?<currentDigest>[a-f0-9]+)(?: # (?<currentValue>.+))?"
+        "\\s*(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:(?<currentDigest>[a-f0-9]+)"
       ],
-      "autoReplaceStringTemplate": "{{{depName}}}@sha256:{{{newDigest}}} # {{{newVersion}}}",
+      "currentValueTemplate": "{{{currentDigest}}}",
+      "autoReplaceStringTemplate": "{{{depName}}}@sha256:{{{newDigest}}}",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^bundle/csv-patch\\.yaml$"],
+      "matchStrings": [
+        "\\s*ose-oauth-proxy-image:\\s*(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:[a-f0-9]+(?:\\s*#\\s*(?<currentVersion>[^\\s]+))?"
+      ],
+      "currentValueTemplate": "{{{currentVersion}}}",
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}@sha256:{{{newDigest}}} # {{{newVersion}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }

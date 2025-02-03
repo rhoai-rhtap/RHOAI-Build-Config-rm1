@@ -16,10 +16,10 @@
       "customType": "regex",
       "fileMatch": ["^bundle/csv-patch\\.yaml$"],
       "matchStrings": [
-        "ose-oauth-proxy-image" // Simplest regex
+        "ose-oauth-proxy-image"
       ],
-      "currentValueTemplate": "latest", // Hardcoded for testing
-      "autoReplaceStringTemplate": "ose-oauth-proxy-image: test-image:test-tag@sha256:test-digest", // Hardcoded for testing
+      "currentValueTemplate": "latest",
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: test-image:test-tag@sha256:test-digest", 
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }

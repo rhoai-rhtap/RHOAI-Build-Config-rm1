@@ -4,11 +4,10 @@
   "enabledManagers": ["custom.regex"],
   "packageRules": [
     {
-      "description": "Update image digest in csv-patch.yaml",
+      "description": "Update ose-oauth-proxy digest",
       "matchFileNames": ["^bundle/csv-patch\\.yaml$"],
       "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-      "matchUpdateTypes": ["digest"],
-      "pinDigests": true,
+      "matchUpdateTypes": ["digest", "minor", "patch"],
       "enabled": true
     }
   ],
@@ -17,9 +16,10 @@
       "customType": "regex",
       "fileMatch": ["^bundle/csv-patch\\.yaml$"],
       "matchStrings": [
-        "(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy)@sha256:(?<currentDigest>[a-f0-9]+)(?: # (?<currentValue>.+))?"
+        "\\s*ose-oauth-proxy-image:\\s*(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy):(?<currentVersion>[^\\s@:]+)(?:@sha256:(?<currentDigest>[a-f0-9]+))?"
       ],
-      "autoReplaceStringTemplate": "{{{depName}}}@sha256:{{{newDigest}}} # {{{newVersion}}}",
+      "currentValueTemplate": "{{{currentVersion}}}",
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }

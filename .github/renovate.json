@@ -1,12 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": ["config:recommended", ":dependencyDashboard"],
   "enabledManagers": ["custom.regex"],
   "packageRules": [
     {
       "description": "Update ose-oauth-proxy image",
-      "matchFileNames": ["^bundle/csv-patch\\.yaml$"],
-      "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
+      "matchFileNames": ["^bundle/csv-patch\\.yaml$"], 
+      "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"], 
       "matchUpdateTypes": ["digest", "minor", "patch"],
       "enabled": true
     }
@@ -14,12 +14,12 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^bundle/csv-patch\\.yaml$"],
+      "fileMatch": ["^bundle/csv-patch\\.yaml$"], 
       "matchStrings": [
-        "ose-oauth-proxy-image(?:_[^\\s:]+)?:\\s+\"(?<depName>[^\"]+):(?<currentValue>[^\"]+)(@(?<currentDigest>sha256:[0-9a-f]+))?\""
+        "\\s*ose-oauth-proxy-image:\\s*(?<depName>[^:]+):(?<currentValue>[^\\s@:]+)(?:@sha256:(?<currentDigest>[a-fA-F0-9]+))?"
       ],
-      "currentValueTemplate": "{{{currentValue}}}",
-      "autoReplaceStringTemplate": "ose-oauth-proxy-image: \"{{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}}\"",
+      "currentValueTemplate": "{{{currentVersion}}}",
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }

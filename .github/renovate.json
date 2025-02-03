@@ -21,7 +21,7 @@
         "#\\s*(?<currentComment>.*)" 
       ],
       "currentValueTemplate": "{{{currentVersion}}}", 
-      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}} # {{{newVersion}}}", // Include the new version in the comment
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}} # {{{newVersion}}}",
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }

@@ -6,7 +6,7 @@
     {
       "description": "Update ose-oauth-proxy image",
       "matchFileNames": ["^bundle/csv-patch\\.yaml$"], 
-      "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"], 
+      "matchPackageNames": ["registry.access.redhat.com/ubi8/go-toolset"], 
       "matchUpdateTypes": ["digest", "minor", "patch"],
       "enabled": true
     }

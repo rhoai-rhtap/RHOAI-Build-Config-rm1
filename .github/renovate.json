@@ -6,7 +6,8 @@
       "description": "Update ose-oauth-proxy image",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"], 
-      "versioning": "docker" 
+      "versioning": "docker",
+      "matchFileNames": ["^bundle/csv-patch\\.yaml$"]
     }
   ],
   "schedule": ["at any time"]

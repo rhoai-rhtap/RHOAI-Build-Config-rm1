@@ -1,3 +1,3 @@
 metadata:
   annotations:
-    ose-oauth-proxy-image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6e5db7a7aab708eb344b36dd6288590aaaf8d7daaaa7ea962fc07b4f985ac77c # v1.2.3
+    ose-oauth-proxy-image: registry.redhat.io/openshift4/ose-oauth-proxy:latest@sha256:6e5db7a7aab708eb344b36dd6288590aaaf8d7daaaa7ea962fc07b4f985ac77c # Initial version information

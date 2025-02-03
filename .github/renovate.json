@@ -1,27 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":dependencyDashboard"],
-  "enabledManagers": ["custom.regex"],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
       "description": "Update ose-oauth-proxy image",
-      "matchFileNames": ["^bundle/csv-patch\\.yaml$"], 
-      "matchPackageNames": ["registry.access.redhat.com/ubi8/go-toolset"], 
-      "matchUpdateTypes": ["digest", "minor", "patch"],
-      "enabled": true
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["^bundle/csv-patch\\.yaml$"], 
-      "matchStrings": [
-        "\\s*ose-oauth-proxy-image:\\s*(?<depName>[^:]+):(?<currentValue>[^\\s@:]+)(?:@sha256:(?<currentDigest>[a-fA-F0-9]+))?"
-      ],
-      "currentValueTemplate": "{{{currentVersion}}}",
-      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}}",
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"], 
+      "versioning": "docker" 
     }
   ],
   "schedule": ["at any time"]

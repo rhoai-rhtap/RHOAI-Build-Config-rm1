@@ -7,7 +7,7 @@
       "description": "Update ose-oauth-proxy digest",
       "matchFileNames": ["^bundle/csv-patch\\.yaml$"],
       "matchPackageNames": ["registry.redhat.io/openshift4/ose-oauth-proxy"],
-      "matchUpdateTypes": ["digest", "minor", "patch"],
+      "matchUpdateTypes": ["digest", "minor", "patch"], 
       "enabled": true
     }
   ],
@@ -15,11 +15,13 @@
     {
       "customType": "regex",
       "fileMatch": ["^bundle/csv-patch\\.yaml$"],
+      "matchStringsStrategy": "combination",
       "matchStrings": [
-        "\\s*ose-oauth-proxy-image:\\s*(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy):(?<currentVersion>[^\\s@:]+)(?:@sha256:(?<currentDigest>[a-f0-9]+))?"
+        "\\s*ose-oauth-proxy-image:\\s*(?<depName>registry.redhat.io/openshift4/ose-oauth-proxy):(?<currentVersion>[^\\s@:]+)(?:@sha256:(?<currentDigest>[a-f0-9]+))?",
+        "#\\s*(?<currentComment>.*)" 
       ],
-      "currentValueTemplate": "{{{currentVersion}}}",
-      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}}",
+      "currentValueTemplate": "{{{currentVersion}}}", 
+      "autoReplaceStringTemplate": "ose-oauth-proxy-image: {{{depName}}}:{{{newVersion}}}@sha256:{{{newDigest}}} # {{{newVersion}}}", // Include the new version in the comment
       "datasourceTemplate": "docker",
       "versioningTemplate": "docker"
     }
